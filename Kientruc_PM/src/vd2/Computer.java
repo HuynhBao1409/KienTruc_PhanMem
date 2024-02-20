@@ -1,7 +1,9 @@
 package vd2;
 
 public class Computer {
+    //Cac thanh phan can xay dung, viec xay dung cac thanh phan nay la phuc tap
     String CPU,RAM,storage,screen;
+    //Ham khoi, khoi tao doi tuong can xay dung tuw doi tuong builder
     private Computer(Builder b){
         this.CPU = b.CPU;
         this.RAM = b.RAM;
