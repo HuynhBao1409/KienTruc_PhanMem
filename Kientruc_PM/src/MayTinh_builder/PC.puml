@@ -1,0 +1,20 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+abstract class PC{
+   #String Mainboard,CPU,RAM,Storage,Screen
+   #int Mainboard_v,CPU_v,RAM_v,Storage_v,Screen_v
+   +{abstract} build()
+   +{abstract} vlaue()
+}
+
+PC<|.. PCDecorator
+PC<--- PCDecorator: pc
+PC<|-- ConcretePC
+
+PCDecorator<|-- UpgradeScreen
+PCDecorator<|-- UpgradeRAM
+
+
+
+@enduml

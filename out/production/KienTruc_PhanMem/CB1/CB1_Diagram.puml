@@ -1,0 +1,48 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+abstract class ATM{
+    - int menhGia;
+    + ATM thietMenhGiaThapHon(ATM atm);
+    + void rutTien(int soTien);
+}
+class menhGiaThapNhat{
+    +void rutTien(int soTien)
+}
+class ChuoiMenhGiaVND
+abstract ChuoiMenhGiaFactory{
+    #ATM_TheoMenhGia get ChuoiMenhGia(int menhGia)
+    +void rutTien(int so Tien, int menhGiaCaoNhat)
+}
+
+ATM<|-- menhGiaATM
+ATM<|--- menhGiaThapNhat
+menhGiaATM ---> ATM : menhGiaThapHon
+ATM<--*ChuoiMenhGiaVND : menhGia 500,\nmenhGia 100,\n ...\nmenhGia 1
+ChuoiMenhGiaFactory<|---ChuoiMenhGiaVND
+ATM<...ChuoiMenhGiaFactory
+
+
+note right of ATM::rutTien
+    tinh so to --> in ra so to
+    tinh so tien du, neu >0
+    Chuyen cho thanh phan sau
+end note
+
+note right of menhGiaThapNhat::rutTien
+    Tinh va in so to
+end note
+
+note bottom of ChuoiMenhGiaVND
++Tạo các đối tượng ATM theo menh gia tien ChuoiMenhGiaVND
++Kết nối các đối tượng này thành chuỗi trong phương thức khởi tạo
++Phương thức getChuoiMenhGia trả về đối tượng kiểu
+ATM trong chuỗi ứng giá trị đầu vào
+end note
+
+note top of ChuoiMenhGiaFactory
++Phương thức rutTien
+- Gọi phương thức getChuoiMenhGia-> chuoiMenhGia
+- Gọi phương thức rutTien trên đối tượng chuoiMenhGia
+end note
+@enduml

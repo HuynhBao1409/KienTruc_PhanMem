@@ -1,0 +1,32 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+abstract class KeHoachHocTap{
+    String ten
+    + {abstract} add(KeHoachHocTap k)
+    + {abstract} remove(KeHoachHocTap k)
+    + {abstract}int soTC()
+    + {abstract}int HocPhi()
+    + {abstract}String thongTin()
+}
+KeHoachHocTap <|-- MonHoc
+KeHoachHocTap <|---* KeHoachChung
+KeHoachChung *--->"*" KeHoachHocTap: List
+class MonHoc{
+int soTC;
+int hocPhiTC
+}
+class KeHoachChung{
+    + int soTC()
+}
+note right of KeHoachChung
+    Cài đặt chung cho: Kỳ học, năm học, khóa học
+end note
+note right of KeHoachChung::soTC
+    t=0;
+    Duyet qua cac KeHoachHocTap k trong List:
+        t=t + k.soTC();
+    return t;
+end note
+
+@enduml

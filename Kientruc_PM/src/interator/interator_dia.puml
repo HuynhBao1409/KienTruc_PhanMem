@@ -1,0 +1,27 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class Collection {
+    {abstract} Iterator createItertor(Collection c)
+}
+
+abstract Iterator {
+    +Fist(): object
+    +Next(): object
+    +bool isDone()
+    +CurenItem(): object
+}
+
+class ArrayCollection {
+    -int[] arr
+    + int getItem(int i)
+    +int count()
+}
+
+
+Collection<|---ArrayCollection
+Iterator <|...ArrayIterator
+ArrayIterator ---> ArrayCollection:collection
+
+
+@enduml

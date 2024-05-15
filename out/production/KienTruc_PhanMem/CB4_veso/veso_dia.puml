@@ -1,0 +1,28 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+abstract IDoVeSo{
+    String tenGiai
+    List<String> soTrung
+    {abstract} DoVeSo giaiKeTiep(DoVeSo giaiKT)
+    {abstract} bool doVeSo(int sove)
+}
+class GiaiUt{
+
+}
+class GiaiThongThuong{}
+IDoVeSo <|--- GiaiThongThuong
+IDoVeSo <-- GiaiThongThuong:keTiep
+IDoVeSo <|---  GiaiUt
+note bottom of GiaiUt
+deVeSo String veSo
+Duyet qua cac chuoi n trong soTrung
+Neu veSo ket thuc bang chuoi s:
+    in thong bao trung giai
+    return
+CHuyen ve so cho giai ke tiep
+end note
+note bottom of GiaiUt
+
+end note
+@enduml
