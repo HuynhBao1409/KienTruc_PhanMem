@@ -1,0 +1,22 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class PlayerData{
+    -PlayerDataListener listen;
+    -int thoiGian, soLuotChoi, diemSo
+    + void dangKy(PlayerDataListener listener);
+    + void huyDangKy(PlayerDataListener listener);
+    + void setThoiGian(int thoiGian)
+    + void setdiemSo(int diemSo)
+    + void setSoLuotChoi(int soLuotChoi)
+
+}
+class Dashboard
+interface PlayerDataListener{
+    +void listen(PlayerData data)
+}
+PlayerData-->PlayerDataListener:listener
+Dashboard..|>PlayerDataListener
+Dashboard--->PlayerData:playerData
+
+@enduml

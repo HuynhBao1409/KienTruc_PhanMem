@@ -1,0 +1,15 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+abstract Xeploai{
+    String tenloai
+    List<String> diem
+    {abstract} xepLoaiketiep(xeploai xp)
+    {abstract} sapxep(int diem)
+
+}
+
+Xeploai<|--- LoaiUT
+Xeploai<--- LoaiTT : ketiep
+Xeploai<|--- LoaiTT
+@enduml
